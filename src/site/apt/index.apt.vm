@@ -43,6 +43,7 @@ Maven Log binding for SLF4J
   singleton. This is how you use it in your Maven plugin:
 
 +--
+import com.jcabi.log.Logger;
 import org.apache.maven.plugin.AbstractMojo;
 import org.slf4j.impl.StaticLoggerBinder;
 public class MyMojo extends AbstractMojo {
