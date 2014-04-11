@@ -1,4 +1,6 @@
-<img src="http://img.jcabi.com/logo.png" width="200px" height="48px" />
+<img src="http://img.jcabi.com/logo-square.png" width="64px" height="64px" />
+ 
+[![Build Status](https://travis-ci.org/jcabi/jcabi-maven-slf4j.svg?branch=master)](https://travis-ci.org/jcabi/jcabi-maven-slf4j)
 
 More details are here: [www.jcabi.com/jcabi-maven-slf4j](http://www.jcabi.com/jcabi-maven-slf4j/index.html)
 
