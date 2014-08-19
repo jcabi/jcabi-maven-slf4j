@@ -105,15 +105,6 @@
                             </excludes>
                         </configuration>
                     </plugin>
-                    <plugin>
-                        <groupId>com.ning.maven.plugins</groupId>
-                        <artifactId>maven-duplicate-finder-plugin</artifactId>
-                        <configuration>
-                            <ignoredResources combine.children="append">
-                                <ignoredResource>about.html</ignoredResource>
-                            </ignoredResources>
-                        </configuration>
-                    </plugin>
                 </plugins>
             </build>
         </profile>
