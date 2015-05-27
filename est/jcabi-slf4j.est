@@ -1,0 +1,18 @@
+date: 27-05-2015
+author: Jason Wong
+method: champions.pert
+scope:
+  1: jcabi-maven-slf4j maven plugin project scaffolding
+  2: Implementation of SLF4J maven adpator
+  3: Implementation of maven plugin
+  4: Achieve 80% test coverage
+  5: CI integration
+champions:
+  2:
+    worst-case: 3
+    best-case: 1
+    most-likely: 2
+  3:
+    worst-case: 3
+    best-case: 1
+    most-likely: 2
