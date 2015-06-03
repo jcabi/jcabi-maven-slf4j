@@ -32,8 +32,7 @@ deploy:
     s3cmd --no-progress put jcabi-maven-slf4j.xml --config=../s3cfg s3://pdd.teamed.io/jcabi-maven-slf4j.xml
     est --dir=./est --verbose --file=jcabi-maven-slf4j.xml --format=xml
     s3cmd --no-progress put jcabi-maven-slf4j.xml --config=../s3cfg s3://est.teamed.io/jcabi-maven-slf4j.xml
-  commanders:
-  - yegor256
+  commanders: []
 env:
   MAVEN_OPTS: -XX:MaxPermSize=256m -Xmx1g
 release:
