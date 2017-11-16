@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/jcabi/jcabi-maven-slf4j.svg?branch=master)](https://travis-ci.org/jcabi/jcabi-maven-slf4j)
 [![PDD status](http://www.0pdd.com/svg?name=jcabi/jcabi-maven-slf4j)](http://www.0pdd.com/p?name=jcabi/jcabi-maven-slf4j)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jcabi/jcabi-maven-slf4j/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jcabi/jcabi-maven-slf4j)
-[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.jcabi/jcabi-maven-slf4j/badge.svg)](http://www.javadoc.io/doc/com.jcabi/jcabi-maven-slf4j)
+[![Javadoc](https://javadoc.io/badge/com.jcabi/jcabi-maven-slf4j.svg)](http://www.javadoc.io/doc/com.jcabi/jcabi-maven-slf4j)
 [![Dependencies](https://www.versioneye.com/user/projects/561ac397a193340f2f0011c0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/561ac397a193340f2f0011c0)
 
 More details are here: [slf4j.jcabi.com](http://slf4j.jcabi.com/index.html)
