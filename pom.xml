@@ -55,7 +55,7 @@
     </scm>
     <properties>
         <maven.version>3.0.5</maven.version>
-        <sisu.version>2.3.4</sisu.version>
+        <sisu.version>2.6.0</sisu.version>
     </properties>
     <dependencies>
         <dependency>
