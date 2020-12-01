@@ -54,7 +54,7 @@
         <url>https://github.com/jcabi/jcabi-maven-slf4j</url>
     </scm>
     <properties>
-        <maven.version>3.0.5</maven.version>
+        <maven.version>3.6.3</maven.version>
         <sisu.version>2.3.4</sisu.version>
     </properties>
     <dependencies>
