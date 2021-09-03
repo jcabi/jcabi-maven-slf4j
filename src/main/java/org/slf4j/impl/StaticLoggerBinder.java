@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2012-2017, jcabi.com
  * All rights reserved.
  *
@@ -56,8 +56,6 @@ import org.slf4j.spi.LoggerFactoryBinder;
  *
  * <p>The class is thread-safe.
  *
- * @author Yegor Bugayenko (yegor@tpc2.com)
- * @version $Id$
  * @since 0.1.6
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
  */
@@ -108,17 +106,11 @@ public final class StaticLoggerBinder implements LoggerFactoryBinder {
         this.loggers.setMavenLog(log);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public ILoggerFactory getLoggerFactory() {
         return this.loggers;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String getLoggerFactoryClassStr() {
         return this.loggers.getClass().getName();

@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2012-2017, jcabi.com
  * All rights reserved.
  *
@@ -34,24 +34,18 @@ import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.logging.console.ConsoleLogger;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link Slf4jAdapter}.
  *
- * @author Yegor Bugayenko (yegor@tpc2.com)
- * @version $Id$
+ * @since 0.1
+ * @checkstyle ExecutableStatementCountCheck (500 lines)
  */
 public final class Slf4jAdapterTest {
 
-    /**
-     * Slf4jAdapter can send log messages through.
-     * @throws Exception If something wrong inside
-     * @checkstyle NoWhitespaceAfter (100 lines)
-     * @checkstyle ExecutableStatementCount (100 lines)
-     */
     @Test
-    public void sendsLogMessagesThrough() throws Exception {
+    public void sendsLogMessagesThrough() {
         final Slf4jAdapter logger = new Slf4jAdapter(
             new DefaultLog(
                 new ConsoleLogger(

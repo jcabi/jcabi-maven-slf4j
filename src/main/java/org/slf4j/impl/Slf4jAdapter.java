@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2012-2017, jcabi.com
  * All rights reserved.
  *
@@ -46,8 +46,6 @@ import org.slf4j.helpers.MessageFormatter;
  *
  * <p>The class is thread-safe.
  *
- * @author Yegor Bugayenko (yegor@tpc2.com)
- * @version $Id$
  * @since 0.1.6
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
  */
@@ -76,260 +74,167 @@ final class Slf4jAdapter extends MarkerIgnoringBase {
      * @param log The log to use
      * @param name The label of the logger
      */
-    public Slf4jAdapter(final Log log, final String name) {
+    Slf4jAdapter(final Log log, final String name) {
         super();
         this.mlog = log;
         this.label = name;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String getName() {
         return this.getClass().getName();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean isTraceEnabled() {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void trace(final String msg) {
         this.mlog.debug(this.decorate(msg));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void trace(final String format, final Object arg) {
-        this.mlog.debug(this.decorate(this.format(format, arg)));
+        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, arg)));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void trace(final String format, final Object first,
         final Object second) {
-        this.mlog.debug(this.decorate(this.format(format, first, second)));
+        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, first, second)));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void trace(final String format, final Object... array) {
-        this.mlog.debug(this.decorate(this.format(format, array)));
+        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, array)));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void trace(final String msg, final Throwable thr) {
         this.mlog.debug(this.decorate(msg), thr);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean isDebugEnabled() {
         return this.mlog.isDebugEnabled();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void debug(final String msg) {
         this.mlog.debug(this.decorate(msg));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void debug(final String format, final Object arg) {
-        this.mlog.debug(this.decorate(this.format(format, arg)));
+        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, arg)));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void debug(final String format, final Object first,
         final Object second) {
-        this.mlog.debug(this.decorate(this.format(format, first, second)));
+        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, first, second)));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void debug(final String format, final Object... array) {
-        this.mlog.debug(this.decorate(this.format(format, array)));
+        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, array)));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void debug(final String msg, final Throwable thr) {
         this.mlog.debug(this.decorate(msg), thr);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean isInfoEnabled() {
         return true;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void info(final String msg) {
         this.mlog.info(msg);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void info(final String format, final Object arg) {
-        this.mlog.info(this.format(format, arg));
+        this.mlog.info(Slf4jAdapter.format(format, arg));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void info(final String format, final Object first,
         final Object second) {
-        this.mlog.info(this.format(format, first, second));
+        this.mlog.info(Slf4jAdapter.format(format, first, second));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void info(final String format, final Object... array) {
-        this.mlog.info(this.format(format, array));
+        this.mlog.info(Slf4jAdapter.format(format, array));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void info(final String msg, final Throwable thr) {
         this.mlog.info(msg, thr);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean isWarnEnabled() {
         return true;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void warn(final String msg) {
         this.mlog.warn(msg);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void warn(final String format, final Object arg) {
-        this.mlog.warn(this.format(format, arg));
+        this.mlog.warn(Slf4jAdapter.format(format, arg));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void warn(final String format, final Object... array) {
-        this.mlog.warn(this.format(format, array));
+        this.mlog.warn(Slf4jAdapter.format(format, array));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void warn(final String format, final Object first,
         final Object second) {
-        this.mlog.warn(this.format(format, first, second));
+        this.mlog.warn(Slf4jAdapter.format(format, first, second));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void warn(final String msg, final Throwable thr) {
         this.mlog.warn(msg, thr);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean isErrorEnabled() {
         return true;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void error(final String msg) {
         this.mlog.error(msg);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void error(final String format, final Object arg) {
-        this.mlog.error(this.format(format, arg));
+        this.mlog.error(Slf4jAdapter.format(format, arg));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void error(final String format, final Object first,
         final Object second) {
-        this.mlog.error(this.format(format, first, second));
+        this.mlog.error(Slf4jAdapter.format(format, first, second));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void error(final String format, final Object... array) {
-        this.mlog.error(this.format(format, array));
+        this.mlog.error(Slf4jAdapter.format(format, array));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void error(final String msg, final Throwable thr) {
         this.mlog.error(msg, thr);
@@ -341,7 +246,7 @@ final class Slf4jAdapter extends MarkerIgnoringBase {
      * @param arg One argument
      * @return The message
      */
-    private String format(final String format, final Object arg) {
+    private static String format(final String format, final Object arg) {
         final FormattingTuple tuple =
             MessageFormatter.format(format, arg);
         return tuple.getMessage();
@@ -354,7 +259,7 @@ final class Slf4jAdapter extends MarkerIgnoringBase {
      * @param second Second argument
      * @return The message
      */
-    private String format(final String format, final Object first,
+    private static String format(final String format, final Object first,
         final Object second) {
         final FormattingTuple tuple =
             MessageFormatter.format(format, first, second);
@@ -367,7 +272,7 @@ final class Slf4jAdapter extends MarkerIgnoringBase {
      * @param array List of arguments
      * @return The message
      */
-    private String format(final String format, final Object[] array) {
+    private static String format(final String format, final Object[] array) {
         final FormattingTuple tuple =
             MessageFormatter.format(format, array);
         return tuple.getMessage();

@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2012-2017, jcabi.com
  * All rights reserved.
  *
@@ -34,23 +34,20 @@ import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.logging.console.ConsoleLogger;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link JcabiLoggers}.
  *
- * @author Yegor Bugayenko (yegor@tpc2.com)
- * @version $Id$
+ * @since 0.1
  */
 public final class JcabiLoggersTest {
 
-    /**
-     * Initialize loggers.
-     * @throws Exception If something wrong inside
-     */
-    @BeforeClass
-    public static void init() throws Exception {
+    @BeforeAll
+    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
+    public static void init() {
         StaticLoggerBinder.getSingleton().setMavenLog(
             new DefaultLog(
                 new ConsoleLogger(
@@ -61,33 +58,23 @@ public final class JcabiLoggersTest {
         );
     }
 
-    /**
-     * JcabiLoggers can create and return logger.
-     * @throws Exception If something wrong inside
-     */
     @Test
-    public void retrievesLoggerByName() throws Exception {
+    public void retrievesLoggerByName() {
         MatcherAssert.assertThat(
             new JcabiLoggers().getLogger("root"),
             Matchers.instanceOf(Slf4jAdapter.class)
         );
     }
 
-    /**
-     * JcabiLoggers can create and return logger.
-     * @throws Exception If something wrong inside
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void throwsWhenLoggerNameIsNull() throws Exception {
-        new JcabiLoggers().getLogger(null);
+    public void throwsWhenLoggerNameIsNull() {
+        Assertions.assertThrows(
+            IllegalArgumentException.class,
+            () -> new JcabiLoggers().getLogger(null)
+        );
     }
 
-    /**
-     * JcabiLoggers can work without injected Maven Log.
-     * @throws Exception If something wrong inside
-     */
     @Test
-    public void worksWithoutMavenLog() throws Exception {
+    public void worksWithoutMavenLog() {
         new JcabiLoggers().getLogger("test").info(
             "this message should be visible in system stream"
         );

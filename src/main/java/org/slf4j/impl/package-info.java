@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2012-2017, jcabi.com
  * All rights reserved.
  *
@@ -39,8 +39,6 @@
  *   &lt;artifactId&gt;jcabi-maven-slf4j&lt;/artifactId&gt;
  * &lt;/dependency&gt;</pre>
  *
- * @author Yegor Bugayenko (yegor@tpc2.com)
- * @version $Id$
  * @since 0.1.6
  * @see <a href="http://www.jcabi.com/jcabi-maven-slf4j">project website</a>
  */

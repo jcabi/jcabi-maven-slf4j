@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2012-2017, jcabi.com
  * All rights reserved.
  *
@@ -42,8 +42,6 @@ import org.slf4j.Logger;
  *
  * <p>The class is thread-safe.
  *
- * @author Yegor Bugayenko (yegor@tpc2.com)
- * @version $Id$
  * @since 0.1.6
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
  */
@@ -56,9 +54,6 @@ final class JcabiLoggers implements ILoggerFactory {
      */
     private transient Log mlog = new SystemStreamLog();
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public Logger getLogger(final String name) {
         if (name == null) {

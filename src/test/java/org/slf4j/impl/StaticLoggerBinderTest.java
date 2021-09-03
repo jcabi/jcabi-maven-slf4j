@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2012-2017, jcabi.com
  * All rights reserved.
  *
@@ -34,23 +34,19 @@ import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.logging.console.ConsoleLogger;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link StaticLoggerBinder}.
  *
- * @author Yegor Bugayenko (yegor@tpc2.com)
- * @version $Id$
+ * @since 0.1
  */
 public final class StaticLoggerBinderTest {
 
-    /**
-     * Initialize logging.
-     * @throws Exception If something wrong inside
-     */
-    @BeforeClass
-    public static void init() throws Exception {
+    @BeforeAll
+    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
+    public static void init() {
         StaticLoggerBinder.getSingleton().setMavenLog(
             new DefaultLog(
                 new ConsoleLogger(
@@ -61,24 +57,16 @@ public final class StaticLoggerBinderTest {
         );
     }
 
-    /**
-     * StaticLoggerBinder can create and return logger factory.
-     * @throws Exception If something wrong inside
-     */
     @Test
-    public void createsLoggerFactoryOfCustomClass() throws Exception {
+    public void createsLoggerFactoryOfCustomClass() {
         MatcherAssert.assertThat(
             StaticLoggerBinder.getSingleton().getLoggerFactory(),
             Matchers.instanceOf(JcabiLoggers.class)
         );
     }
 
-    /**
-     * StaticLoggerBinder can return logger factory name.
-     * @throws Exception If something wrong inside
-     */
     @Test
-    public void retrievesLoggerFactoryString() throws Exception {
+    public void retrievesLoggerFactoryString() {
         MatcherAssert.assertThat(
             StaticLoggerBinder.getSingleton().getLoggerFactoryClassStr(),
             Matchers.equalTo(JcabiLoggers.class.getName())
