@@ -54,16 +54,16 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
     <url>https://github.com/jcabi/jcabi-maven-slf4j</url>
   </scm>
   <properties>
-    <maven.version>3.0.5</maven.version>
+    <maven.version>3.6.3</maven.version>
     <sisu.version>2.3.4</sisu.version>
   </properties>
   <dependencies>
     <dependency>
       <!--
-            Since every framework uses its own logging mechanism
-            this SLF4J is going to help to control everything from
-            one point.
-            -->
+      Since every framework uses its own logging mechanism
+      this SLF4J is going to help to control everything from
+      one point.
+      -->
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.8.0-beta1</version>
@@ -89,6 +89,12 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
           <artifactId>sisu-inject-bean</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.sisu</groupId>
+      <artifactId>org.eclipse.sisu.plexus</artifactId>
+      <version>0.3.4</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <profiles>
