@@ -32,25 +32,24 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
   <skin>
     <groupId>com.jcabi</groupId>
     <artifactId>jcabi-maven-skin</artifactId>
-    <version>1.4</version>
+    <version>1.7.1</version>
   </skin>
   <bannerLeft>
     <name>jcabi</name>
     <src>http://img.jcabi.com/logo-square.svg</src>
-    <href>http://www.jcabi.com/</href>
+    <href>https://www.jcabi.com/</href>
     <width>64</width>
     <height>64</height>
   </bannerLeft>
   <googleAnalyticsAccountId>UA-1963507-23</googleAnalyticsAccountId>
   <body>
     <head>
-      <link href="http://img.jcabi.com/favicon.ico" rel="shortcut icon"/>
-      <link href="https://plus.google.com/u/0/114792568016408327418?rel=author" rel="author"/>
+      &lt;link href="http://img.jcabi.com/favicon.ico" rel="shortcut icon"/&gt;
+      &lt;link href="https://plus.google.com/u/0/114792568016408327418?rel=author" rel="author"/&gt;
     </head>
     <menu name="Overview">
       <item name="Introduction" href="index.html"/>
       <item name="JavaDoc ${project.version}" href="./apidocs-${project.version}/index.html"/>
-      <item name="Test coverage" href="./cobertura/index.html"/>
       <item name="Release History" href="https://github.com/jcabi/jcabi-maven-slf4j/releases"/>
     </menu>
     <menu ref="reports"/>
