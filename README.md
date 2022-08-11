@@ -1,16 +1,15 @@
-<img src="http://img.jcabi.com/logo-square.svg" width="64px" height="64px" />
+<img alt="logo" src="http://img.jcabi.com/logo-square.svg" width="64px" height="64px" />
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![Managed by Zerocracy](https://www.0crat.com/badge/C3RUBL5H9.svg)](https://www.0crat.com/p/C3RUBL5H9)
 [![DevOps By Rultor.com](http://www.rultor.com/b/jcabi/jcabi-maven-slf4j)](http://www.rultor.com/p/jcabi/jcabi-maven-slf4j)
 
-[![Build Status](https://travis-ci.org/jcabi/jcabi-maven-slf4j.svg?branch=master)](https://travis-ci.org/jcabi/jcabi-maven-slf4j)
+[![mvn](https://github.com/jcabi/jcabi-maven-slf4j/actions/workflows/mvn.yml/badge.svg)](https://github.com/jcabi/jcabi-maven-slf4j/actions/workflows/mvn.yml)
 [![PDD status](http://www.0pdd.com/svg?name=jcabi/jcabi-maven-slf4j)](http://www.0pdd.com/p?name=jcabi/jcabi-maven-slf4j)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jcabi/jcabi-maven-slf4j/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jcabi/jcabi-maven-slf4j)
 [![Javadoc](https://javadoc.io/badge/com.jcabi/jcabi-maven-slf4j.svg)](http://www.javadoc.io/doc/com.jcabi/jcabi-maven-slf4j)
-[![Dependencies](https://www.versioneye.com/user/projects/561ac397a193340f2f0011c0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/561ac397a193340f2f0011c0)
 
-More details are here: [slf4j.jcabi.com](http://slf4j.jcabi.com/index.html)
+More details are here: [slf4j.jcabi.com](https://slf4j.jcabi.com/index.html)
 
 Maven Log to SLF4J binding is implemented with
 `StaticLoggerBinder` singleton. This is how you use it in your Maven plugin:
