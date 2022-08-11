@@ -1,18 +1,22 @@
+docker:
+  image: yegor256/rultor-image:1.9.1
+install: |
+  pdd --file=/dev/null
 assets:
   secring.gpg: yegor256/home#assets/secring.gpg
   settings.xml: yegor256/home#assets/jcabi/settings.xml
   pubring.gpg: yegor256/home#assets/pubring.gpg
-install: |
-  sudo update-java-alternatives -s java-1.8.0-openjdk-amd64
-  sudo gem install pdd
-  sudo gem install xcop
-  pdd --file=/dev/null
 merge:
-  script: |
-    mvn clean install -Pqulice --errors -Dstyle.color=never
-release:
   script: |-
-    mvn versions:set "-DnewVersion=${tag}" -Dstyle.color=never
+    pdd -f /dev/null
+    mvn clean install -Pqulice --errors --settings ../settings.xml
+release:
+  pre: false
+  sensitive:
+    - settings.xml
+  script: |-
+    pdd -f /dev/null
+    mvn versions:set "-DnewVersion=${tag}"
     git commit -am "${tag}"
-    mvn clean install -Dinvoker.skip
-    mvn clean deploy -Pjcabi -Psonatype --errors --settings ../settings.xml -Dstyle.color=never
+    mvn clean deploy -Pqulice -Psonatype -Pjcabi --errors --settings ../settings.xml
+    mvn clean site-deploy -Pjcabi -Psite --errors --settings ../settings.xml
