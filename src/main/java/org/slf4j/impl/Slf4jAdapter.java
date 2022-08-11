@@ -32,8 +32,10 @@ package org.slf4j.impl;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.apache.maven.plugin.logging.Log;
+import org.slf4j.Marker;
+import org.slf4j.event.Level;
 import org.slf4j.helpers.FormattingTuple;
-import org.slf4j.helpers.MarkerIgnoringBase;
+import org.slf4j.helpers.LegacyAbstractLogger;
 import org.slf4j.helpers.MessageFormatter;
 
 /**
@@ -52,7 +54,7 @@ import org.slf4j.helpers.MessageFormatter;
 @ToString
 @EqualsAndHashCode(callSuper = false)
 @SuppressWarnings("PMD.TooManyMethods")
-final class Slf4jAdapter extends MarkerIgnoringBase {
+final class Slf4jAdapter extends LegacyAbstractLogger {
 
     /**
      * Serialization ID.
@@ -238,6 +240,17 @@ final class Slf4jAdapter extends MarkerIgnoringBase {
     @Override
     public void error(final String msg, final Throwable thr) {
         this.mlog.error(msg, thr);
+    }
+
+    @Override
+    public String getFullyQualifiedCallerName() {
+        return "jcabi-maven-slf4j";
+    }
+
+    @Override
+    public void handleNormalizedLoggingCall(final Level level, final Marker marker,
+        final String msg, final Object[] arguments, final Throwable throwable) {
+        throw new UnsupportedOperationException("we should not reach this point ever");
     }
 
     /**
