@@ -8,6 +8,7 @@
 [![PDD status](http://www.0pdd.com/svg?name=jcabi/jcabi-maven-slf4j)](http://www.0pdd.com/p?name=jcabi/jcabi-maven-slf4j)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jcabi/jcabi-maven-slf4j/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jcabi/jcabi-maven-slf4j)
 [![Javadoc](https://javadoc.io/badge/com.jcabi/jcabi-maven-slf4j.svg)](http://www.javadoc.io/doc/com.jcabi/jcabi-maven-slf4j)
+[![codecov](https://codecov.io/gh/jcabi/jcabi-maven-slf4j/branch/master/graph/badge.svg)](https://codecov.io/gh/jcabi/jcabi-maven-slf4j)
 
 More details are here: [slf4j.jcabi.com](https://slf4j.jcabi.com/index.html)
 
