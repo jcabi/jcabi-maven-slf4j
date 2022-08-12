@@ -33,7 +33,7 @@
                                                                     </ul>
                                                     </li>
                                                                                                                         <li >
-                            <span>                        <a href="apidocs-0.12.1/index.html" title="JavaDoc 0.12.1">JavaDoc 0.12.1</a>
+                            <span>                        <a href="apidocs-0.12.2/index.html" title="JavaDoc 0.12.2">JavaDoc 0.12.2</a>
         </span>
                                                                                                                                                                 <ul>
                                                                     </ul>
@@ -140,11 +140,11 @@
                             </div>
                             <ul class="badges">
                                 <li>
-                                    <strong itemprop="version">0.12.1</strong>
+                                    <strong itemprop="version">0.12.2</strong>
                                 </li>
                                 <li>
                                     
-                                    <time itemprop="datePublished" datetime="2022-08-12T02:50:20Z">
+                                    <time itemprop="datePublished" datetime="2022-08-12T03:37:27Z">
                                         
                                         12-Aug-2022
                                     </time>
@@ -159,7 +159,7 @@
                                                 <article itemprop="articleBody">
                             <section>
 <h2><a name="Maven_Log_binding_for_SLF4J"></a>Maven Log binding for SLF4J</h2>
-<p>Maven Log to SLF4J binding is implemented with <a href="./apidocs-0.12.1/org/slf4j/impl/StaticLoggerBinder.html"><code>StaticLoggerBinder</code></a> singleton. This is how you use it in your Maven plugin:</p>
+<p>Maven Log to SLF4J binding is implemented with <a href="./apidocs-0.12.2/org/slf4j/impl/StaticLoggerBinder.html"><code>StaticLoggerBinder</code></a> singleton. This is how you use it in your Maven plugin:</p>
 <div class="source">
 <pre>import com.jcabi.log.Logger;
 import org.apache.maven.plugin.AbstractMojo;
@@ -176,12 +176,12 @@ public class MyMojo extends AbstractMojo {
 }</pre></div>
 <p>The <code>Logger.info()</code> call will go to Maven Log through SLF4J.</p>
 <p>Since 0.7.12 log stream is forwarded to <a class="externalLink" href="http://maven.apache.org/ref/3.0.5/maven-plugin-api/apidocs/org/apache/maven/plugin/logging/SystemStreamLog.html"><code>SystemStreamLog</code></a> if <code>StaticLoggerBinder.setMavenLog()</code> is not called. In earlier versions a runtime exception was thrown.</p>
-<p>The only dependency you need (you can also download <a class="externalLink" href="http://repo1.maven.org/maven2/com/jcabi/jcabi-maven-slf4j/0.12.1/jcabi-maven-slf4j-0.12.1.jar"><code>jcabi-maven-slf4j-0.12.1.jar</code></a> and add it to the classpath):</p>
+<p>The only dependency you need (you can also download <a class="externalLink" href="http://repo1.maven.org/maven2/com/jcabi/jcabi-maven-slf4j/0.12.2/jcabi-maven-slf4j-0.12.2.jar"><code>jcabi-maven-slf4j-0.12.2.jar</code></a> and add it to the classpath):</p>
 <div class="source">
 <pre>&lt;dependency&gt;
   &lt;groupId&gt;com.jcabi&lt;/groupId&gt;
   &lt;artifactId&gt;jcabi-maven-slf4j&lt;/artifactId&gt;
-  &lt;version&gt;0.12.1&lt;/version&gt;
+  &lt;version&gt;0.12.2&lt;/version&gt;
 &lt;/dependency&gt;</pre></div><section>
 <h3><a name="Cutting_Edge_Version"></a>Cutting Edge Version</h3>
 <p>If you want to use current version of the product, you can do it with this configuration in your <code>pom.xml</code>:</p>
