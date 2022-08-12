@@ -81,8 +81,10 @@ public final class StaticLoggerBinder implements LoggerFactoryBinder {
      * The {@link ILoggerFactory} instance returned by the
      * {@link #getLoggerFactory()} method should always be
      * the same object.
+     *
+     * @checkstyle VisibilityModifierCheck (5 lines)
      */
-    private final transient JcabiLoggers loggers = new JcabiLoggers();
+    public final transient JcabiLoggers loggers = new JcabiLoggers();
 
     /**
      * Private ctor to avoid direct instantiation of the class.
@@ -105,6 +107,14 @@ public final class StaticLoggerBinder implements LoggerFactoryBinder {
      */
     public void setMavenLog(final Log log) {
         this.loggers.setMavenLog(log);
+    }
+
+    /**
+     * Get Maven Log.
+     * @return The log
+     */
+    public Log getMavenLog() {
+        return this.loggers.getMavenLog();
     }
 
     @Override

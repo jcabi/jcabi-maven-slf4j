@@ -31,11 +31,11 @@ package com.jcabi.slf4j;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import org.apache.maven.plugin.logging.Log;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.IMarkerFactory;
 import org.slf4j.helpers.BasicMDCAdapter;
 import org.slf4j.helpers.BasicMarkerFactory;
+import org.slf4j.impl.StaticLoggerBinder;
 import org.slf4j.spi.MDCAdapter;
 import org.slf4j.spi.SLF4JServiceProvider;
 
@@ -57,13 +57,6 @@ public final class MavenSlf4j implements SLF4JServiceProvider {
     @SuppressWarnings("PMD.LongVariable")
     public static final String REQUESTED_API_VERSION = "2.0.99";
 
-    /**
-     * The {@link ILoggerFactory} instance returned by the
-     * {@link #getLoggerFactory()} method should always be
-     * the same object.
-     */
-    private static final JcabiLoggers LOGGERS = new JcabiLoggers();
-
     @Override
     public void initialize() {
         // nothing here
@@ -71,7 +64,7 @@ public final class MavenSlf4j implements SLF4JServiceProvider {
 
     @Override
     public ILoggerFactory getLoggerFactory() {
-        return MavenSlf4j.LOGGERS;
+        return StaticLoggerBinder.getSingleton().getLoggerFactory();
     }
 
     @Override
@@ -87,15 +80,6 @@ public final class MavenSlf4j implements SLF4JServiceProvider {
     @Override
     public String getRequestedApiVersion() {
         return MavenSlf4j.REQUESTED_API_VERSION;
-    }
-
-    /**
-     * Set Maven Log.
-     * @param log The log from Maven plugin
-     */
-    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
-    public static void setMavenLog(final Log log) {
-        MavenSlf4j.LOGGERS.setMavenLog(log);
     }
 
 }

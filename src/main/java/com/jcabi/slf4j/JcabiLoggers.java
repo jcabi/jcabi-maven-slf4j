@@ -73,4 +73,12 @@ public final class JcabiLoggers implements ILoggerFactory {
         }
     }
 
+    /**
+     * Get Maven log.
+     * @return The log
+     */
+    public Log getMavenLog() {
+        return this.mlog;
+    }
+
 }

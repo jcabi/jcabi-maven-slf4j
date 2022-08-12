@@ -37,6 +37,7 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.slf4j.impl.StaticLoggerBinder;
 
 /**
  * Test case for {@link JcabiLoggers}.
@@ -48,7 +49,7 @@ public final class JcabiLoggersTest {
     @BeforeAll
     @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
     public static void init() {
-        MavenSlf4j.setMavenLog(
+        StaticLoggerBinder.getSingleton().setMavenLog(
             new DefaultLog(
                 new ConsoleLogger(
                     Logger.LEVEL_DEBUG,
