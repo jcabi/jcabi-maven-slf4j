@@ -68,7 +68,7 @@ public final class StaticLoggerBinder implements LoggerFactoryBinder {
      * against. The value of this field is usually modified with each release.
      */
     @SuppressWarnings("PMD.LongVariable")
-    public static final String REQUESTED_API_VERSION = "1.6";
+    public static final String REQUESTED_API_VERSION = "2.0";
 
     /**
      * The unique instance of this class.
