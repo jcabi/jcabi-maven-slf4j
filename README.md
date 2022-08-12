@@ -33,6 +33,11 @@ public class MyMojo extends AbstractMojo {
 
 The `Logger.info()` call will go to Maven Log through SLF4J.
 
+Versions:
+
+  * jcabi-maven-slf4j 0.11 is for slfj4 1.6
+  * jcabi-maven-slf4j 0.12 is for slfj4 2.0
+
 ## How to contribute?
 
 Fork the repository, make changes, submit a pull request.
