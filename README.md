@@ -35,8 +35,8 @@ The `Logger.info()` call will go to Maven Log through SLF4J.
 
 Versions:
 
-  * jcabi-maven-slf4j 0.11 is for slfj4 1.6
-  * jcabi-maven-slf4j 0.12 is for slfj4 2.0
+  * jcabi-maven-slf4j 0.11 is for slf4j-api 1.6
+  * jcabi-maven-slf4j 0.12 is for slf4j-api 2.0
 
 ## How to contribute?
 
