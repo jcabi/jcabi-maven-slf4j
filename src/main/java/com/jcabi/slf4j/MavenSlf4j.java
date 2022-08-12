@@ -44,7 +44,7 @@ import org.slf4j.spi.SLF4JServiceProvider;
  *
  * <p>The class is thread-safe.
  *
- * @since 0.1.6
+ * @since 0.12
  */
 @ToString
 @EqualsAndHashCode
