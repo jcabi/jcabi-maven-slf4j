@@ -22,9 +22,7 @@ import org.apache.maven.plugin.AbstractMojo;
 public class MyMojo extends AbstractMojo {
     @Override
     public void execute() {
-        // one of the lines below should work (slf4j-api 1.8 or 2.0):
         StaticLoggerBinder.getSingleton().setMavenLog(this.getLog());
-        MavenSlf4j.setMavenLog(this.getLog());
         // ... later ...
         Logger.info(this, "hello, world!");
         // and you can still use the usual logging mechanism
