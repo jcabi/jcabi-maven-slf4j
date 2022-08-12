@@ -18,6 +18,7 @@ Maven Log to SLF4J binding is implemented with
 ```java
 import com.jcabi.log.Logger;
 import org.apache.maven.plugin.AbstractMojo;
+import org.slf4j.impl.StaticLoggerBinder;
 
 public class MyMojo extends AbstractMojo {
     @Override
