@@ -18,25 +18,22 @@ Maven Log to SLF4J binding is implemented with
 ```java
 import com.jcabi.log.Logger;
 import org.apache.maven.plugin.AbstractMojo;
-import org.slf4j.impl.StaticLoggerBinder;
+
 public class MyMojo extends AbstractMojo {
-  @Override
-  public void execute() {
-    StaticLoggerBinder.getSingleton().setMavenLog(this.getLog());
-    // ... later ...
-    Logger.info(this, "hello, world!");
-    // and you can still use the usual logging mechanism
-    this.getLog().info("hello again");
-  }
+    @Override
+    public void execute() {
+        // one of the lines below should work (slf4j-api 1.8 or 2.0):
+        StaticLoggerBinder.getSingleton().setMavenLog(this.getLog());
+        MavenSlf4j.setMavenLog(this.getLog());
+        // ... later ...
+        Logger.info(this, "hello, world!");
+        // and you can still use the usual logging mechanism
+        this.getLog().info("hello again");
+    }
 }
 ```
 
 The `Logger.info()` call will go to Maven Log through SLF4J.
-
-Versions:
-
-  * jcabi-maven-slf4j 0.11 is for slf4j-api 1.6
-  * jcabi-maven-slf4j 0.12 is for slf4j-api 2.0
 
 ## How to contribute?
 

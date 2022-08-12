@@ -27,7 +27,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.slf4j.impl;
+package com.jcabi.slf4j;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -64,6 +64,7 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     /**
      * The log to use.
      */
+    @SuppressWarnings("PMD.ProperLogger")
     private final transient Log mlog;
 
     /**
@@ -285,7 +286,7 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
      * @param array List of arguments
      * @return The message
      */
-    private static String format(final String format, final Object[] array) {
+    private static String format(final String format, final Object... array) {
         final FormattingTuple tuple =
             MessageFormatter.format(format, array);
         return tuple.getMessage();

@@ -27,94 +27,75 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.slf4j.impl;
+package com.jcabi.slf4j;
 
-import com.jcabi.slf4j.JcabiLoggers;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.apache.maven.plugin.logging.Log;
 import org.slf4j.ILoggerFactory;
-import org.slf4j.spi.LoggerFactoryBinder;
+import org.slf4j.IMarkerFactory;
+import org.slf4j.helpers.BasicMDCAdapter;
+import org.slf4j.helpers.BasicMarkerFactory;
+import org.slf4j.spi.MDCAdapter;
+import org.slf4j.spi.SLF4JServiceProvider;
 
 /**
- * The binding of {@link ILoggerFactory} class with
- * an actual instance of {@link ILoggerFactory} is
- * performed using information returned by this class.
- *
- * <p>This is what you should do in your Maven plugin (before everything else):
- *
- * <pre> import org.apache.maven.plugin.AbstractMojo;
- * import org.slf4j.impl.StaticLoggerBinder;
- * public class MyMojo extends AbstractMojo {
- *   &#64;Override
- *   public void execute() {
- *     StaticLoggerBinder.getSingleton().setMavenLog(this.getLog());
- *     // ... all the rest
- *   }
- * }</pre>
- *
- * <p>All SLF4J calls will be forwarded to Maven Log.
+ * Service provider.
  *
  * <p>The class is thread-safe.
  *
  * @since 0.1.6
- * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
  */
 @ToString
-@EqualsAndHashCode(of = "loggers")
-public final class StaticLoggerBinder implements LoggerFactoryBinder {
+@EqualsAndHashCode
+public final class MavenSlf4j implements SLF4JServiceProvider {
 
     /**
      * Declare the version of the SLF4J API this implementation is compiled
      * against. The value of this field is usually modified with each release.
      */
     @SuppressWarnings("PMD.LongVariable")
-    public static final String REQUESTED_API_VERSION = "2.0";
-
-    /**
-     * The unique instance of this class.
-     */
-    private static final StaticLoggerBinder SINGLETON =
-        new StaticLoggerBinder();
+    public static final String REQUESTED_API_VERSION = "2.0.99";
 
     /**
      * The {@link ILoggerFactory} instance returned by the
      * {@link #getLoggerFactory()} method should always be
      * the same object.
      */
-    private final transient JcabiLoggers loggers = new JcabiLoggers();
+    private static final JcabiLoggers LOGGERS = new JcabiLoggers();
 
-    /**
-     * Private ctor to avoid direct instantiation of the class.
-     */
-    private StaticLoggerBinder() {
-        // intentionally empty
+    @Override
+    public void initialize() {
+        // nothing here
     }
 
-    /**
-     * Return the singleton of this class.
-     * @return The StaticLoggerBinder singleton
-     */
-    public static StaticLoggerBinder getSingleton() {
-        return StaticLoggerBinder.SINGLETON;
+    @Override
+    public ILoggerFactory getLoggerFactory() {
+        return MavenSlf4j.LOGGERS;
+    }
+
+    @Override
+    public IMarkerFactory getMarkerFactory() {
+        return new BasicMarkerFactory();
+    }
+
+    @Override
+    public MDCAdapter getMDCAdapter() {
+        return new BasicMDCAdapter();
+    }
+
+    @Override
+    public String getRequestedApiVersion() {
+        return MavenSlf4j.REQUESTED_API_VERSION;
     }
 
     /**
      * Set Maven Log.
      * @param log The log from Maven plugin
      */
-    public void setMavenLog(final Log log) {
-        this.loggers.setMavenLog(log);
-    }
-
-    @Override
-    public ILoggerFactory getLoggerFactory() {
-        return this.loggers;
-    }
-
-    @Override
-    public String getLoggerFactoryClassStr() {
-        return this.loggers.getClass().getName();
+    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
+    public static void setMavenLog(final Log log) {
+        MavenSlf4j.LOGGERS.setMavenLog(log);
     }
 
 }

@@ -27,50 +27,56 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.slf4j.impl;
+package com.jcabi.slf4j;
 
-import com.jcabi.slf4j.JcabiLoggers;
 import org.apache.maven.monitor.logging.DefaultLog;
 import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.logging.console.ConsoleLogger;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test case for {@link StaticLoggerBinder}.
+ * Test case for {@link JcabiLoggers}.
  *
  * @since 0.1
  */
-public final class StaticLoggerBinderTest {
+public final class JcabiLoggersTest {
 
     @BeforeAll
     @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
     public static void init() {
-        StaticLoggerBinder.getSingleton().setMavenLog(
+        MavenSlf4j.setMavenLog(
             new DefaultLog(
                 new ConsoleLogger(
                     Logger.LEVEL_DEBUG,
-                    StaticLoggerBinderTest.class.getName()
+                    JcabiLoggersTest.class.getName()
                 )
             )
         );
     }
 
     @Test
-    public void createsLoggerFactoryOfCustomClass() {
+    public void retrievesLoggerByName() {
         MatcherAssert.assertThat(
-            StaticLoggerBinder.getSingleton().getLoggerFactory(),
-            Matchers.instanceOf(JcabiLoggers.class)
+            new JcabiLoggers().getLogger("root"),
+            Matchers.instanceOf(Slf4jAdapter.class)
+        );
+    }
+
+    public void throwsWhenLoggerNameIsNull() {
+        Assertions.assertThrows(
+            IllegalArgumentException.class,
+            () -> new JcabiLoggers().getLogger(null)
         );
     }
 
     @Test
-    public void retrievesLoggerFactoryString() {
-        MatcherAssert.assertThat(
-            StaticLoggerBinder.getSingleton().getLoggerFactoryClassStr(),
-            Matchers.equalTo(JcabiLoggers.class.getName())
+    public void worksWithoutMavenLog() {
+        new JcabiLoggers().getLogger("test").info(
+            "this message should be visible in system stream"
         );
     }
 

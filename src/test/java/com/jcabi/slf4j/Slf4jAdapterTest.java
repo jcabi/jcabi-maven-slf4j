@@ -27,7 +27,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.slf4j.impl;
+package com.jcabi.slf4j;
 
 import org.apache.maven.monitor.logging.DefaultLog;
 import org.codehaus.plexus.logging.Logger;
