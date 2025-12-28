@@ -90,8 +90,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void trace(final String msg, final Throwable thr) {
-        this.mlog.debug(this.decorate(msg), thr);
+    public void trace(final String msg, final Throwable th) {
+        this.mlog.debug(this.decorate(msg), th);
     }
 
     @Override
@@ -121,8 +121,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void debug(final String msg, final Throwable thr) {
-        this.mlog.debug(this.decorate(msg), thr);
+    public void debug(final String msg, final Throwable th) {
+        this.mlog.debug(this.decorate(msg), th);
     }
 
     @Override
@@ -152,8 +152,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void info(final String msg, final Throwable thr) {
-        this.mlog.info(msg, thr);
+    public void info(final String msg, final Throwable th) {
+        this.mlog.info(msg, th);
     }
 
     @Override
@@ -183,8 +183,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void warn(final String msg, final Throwable thr) {
-        this.mlog.warn(msg, thr);
+    public void warn(final String msg, final Throwable th) {
+        this.mlog.warn(msg, th);
     }
 
     @Override
@@ -214,8 +214,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void error(final String msg, final Throwable thr) {
-        this.mlog.error(msg, thr);
+    public void error(final String msg, final Throwable th) {
+        this.mlog.error(msg, th);
     }
 
     @Override
