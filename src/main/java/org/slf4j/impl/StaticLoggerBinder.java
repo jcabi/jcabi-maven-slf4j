@@ -37,6 +37,7 @@ import org.slf4j.spi.LoggerFactoryBinder;
  */
 @ToString
 @EqualsAndHashCode(of = "loggers")
+@SuppressWarnings("PMD.ConstructorShouldDoInitialization")
 public final class StaticLoggerBinder implements LoggerFactoryBinder {
 
     /**
