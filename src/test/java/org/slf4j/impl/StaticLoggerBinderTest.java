@@ -36,6 +36,7 @@ final class StaticLoggerBinderTest {
     @Test
     void createsLoggerFactoryOfCustomClass() {
         MatcherAssert.assertThat(
+            "should creates logger factory of JcabiLoggers.class",
             StaticLoggerBinder.getSingleton().getLoggerFactory(),
             Matchers.instanceOf(JcabiLoggers.class)
         );
@@ -44,6 +45,7 @@ final class StaticLoggerBinderTest {
     @Test
     void retrievesLoggerFactoryString() {
         MatcherAssert.assertThat(
+            "should retrieves logger factory class name",
             StaticLoggerBinder.getSingleton().getLoggerFactoryClassStr(),
             Matchers.equalTo(JcabiLoggers.class.getName())
         );
