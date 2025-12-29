@@ -32,8 +32,8 @@ import org.slf4j.spi.LoggerFactoryBinder;
  *
  * <p>The class is thread-safe.
  *
- * @since 0.1.6
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
+ * @since 0.1.6
  */
 @ToString
 @EqualsAndHashCode(of = "loggers")

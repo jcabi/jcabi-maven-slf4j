@@ -23,8 +23,8 @@ import org.slf4j.helpers.MessageFormatter;
  *
  * <p>The class is thread-safe.
  *
- * @since 0.1.6
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
+ * @since 0.1.6
  */
 @ToString
 @EqualsAndHashCode(callSuper = false)
@@ -90,8 +90,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void trace(final String msg, final Throwable th) {
-        this.mlog.debug(this.decorate(msg), th);
+    public void trace(final String msg, final Throwable thrw) {
+        this.mlog.debug(this.decorate(msg), thrw);
     }
 
     @Override
@@ -121,8 +121,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void debug(final String msg, final Throwable th) {
-        this.mlog.debug(this.decorate(msg), th);
+    public void debug(final String msg, final Throwable thrw) {
+        this.mlog.debug(this.decorate(msg), thrw);
     }
 
     @Override
@@ -152,8 +152,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void info(final String msg, final Throwable th) {
-        this.mlog.info(msg, th);
+    public void info(final String msg, final Throwable thrw) {
+        this.mlog.info(msg, thrw);
     }
 
     @Override
@@ -183,8 +183,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void warn(final String msg, final Throwable th) {
-        this.mlog.warn(msg, th);
+    public void warn(final String msg, final Throwable thrw) {
+        this.mlog.warn(msg, thrw);
     }
 
     @Override
@@ -214,8 +214,8 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
-    public void error(final String msg, final Throwable th) {
-        this.mlog.error(msg, th);
+    public void error(final String msg, final Throwable thrw) {
+        this.mlog.error(msg, thrw);
     }
 
     @Override
