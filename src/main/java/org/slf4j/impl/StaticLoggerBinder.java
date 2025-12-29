@@ -72,6 +72,7 @@ public final class StaticLoggerBinder implements LoggerFactoryBinder {
      * Return the singleton of this class.
      * @return The StaticLoggerBinder singleton
      */
+    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
     public static StaticLoggerBinder getSingleton() {
         return StaticLoggerBinder.SINGLETON;
     }
