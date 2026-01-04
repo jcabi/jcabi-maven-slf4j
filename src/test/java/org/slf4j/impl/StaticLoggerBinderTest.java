@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
  *
  * @since 0.1
  */
-public final class StaticLoggerBinderTest {
+final class StaticLoggerBinderTest {
 
     @BeforeAll
     @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
@@ -34,16 +34,18 @@ public final class StaticLoggerBinderTest {
     }
 
     @Test
-    public void createsLoggerFactoryOfCustomClass() {
+    void createsLoggerFactoryOfCustomClass() {
         MatcherAssert.assertThat(
+            "should creates logger factory of JcabiLoggers.class",
             StaticLoggerBinder.getSingleton().getLoggerFactory(),
             Matchers.instanceOf(JcabiLoggers.class)
         );
     }
 
     @Test
-    public void retrievesLoggerFactoryString() {
+    void retrievesLoggerFactoryString() {
         MatcherAssert.assertThat(
+            "should retrieves logger factory class name",
             StaticLoggerBinder.getSingleton().getLoggerFactoryClassStr(),
             Matchers.equalTo(JcabiLoggers.class.getName())
         );
