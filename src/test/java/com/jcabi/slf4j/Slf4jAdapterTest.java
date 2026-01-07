@@ -17,10 +17,10 @@ import org.junit.jupiter.api.Test;
  * @since 0.1
  * @checkstyle ExecutableStatementCountCheck (500 lines)
  */
-public final class Slf4jAdapterTest {
+final class Slf4jAdapterTest {
 
     @Test
-    public void sendsLogMessagesThrough() {
+    void sendsLogMessagesThrough() {
         final Slf4jAdapter logger = new Slf4jAdapter(
             new DefaultLog(
                 new ConsoleLogger(
@@ -36,6 +36,7 @@ public final class Slf4jAdapterTest {
         logger.isWarnEnabled();
         logger.isErrorEnabled();
         MatcherAssert.assertThat(
+            "should has name 'com.jcabi.test'",
             Slf4jAdapter.class.getName(),
             Matchers.equalTo(logger.getName())
         );

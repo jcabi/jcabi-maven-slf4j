@@ -32,11 +32,12 @@ import org.slf4j.spi.LoggerFactoryBinder;
  *
  * <p>The class is thread-safe.
  *
- * @since 0.1.6
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
+ * @since 0.1.6
  */
 @ToString
 @EqualsAndHashCode(of = "loggers")
+@SuppressWarnings("PMD.ConstructorShouldDoInitialization")
 public final class StaticLoggerBinder implements LoggerFactoryBinder {
 
     /**
@@ -72,6 +73,7 @@ public final class StaticLoggerBinder implements LoggerFactoryBinder {
      * Return the singleton of this class.
      * @return The StaticLoggerBinder singleton
      */
+    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
     public static StaticLoggerBinder getSingleton() {
         return StaticLoggerBinder.SINGLETON;
     }

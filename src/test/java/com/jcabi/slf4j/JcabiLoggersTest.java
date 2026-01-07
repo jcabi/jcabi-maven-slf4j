@@ -9,7 +9,6 @@ import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.logging.console.ConsoleLogger;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.impl.StaticLoggerBinder;
@@ -19,11 +18,11 @@ import org.slf4j.impl.StaticLoggerBinder;
  *
  * @since 0.1
  */
-public final class JcabiLoggersTest {
+final class JcabiLoggersTest {
 
     @BeforeAll
     @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
-    public static void init() {
+    static void init() {
         StaticLoggerBinder.getSingleton().setMavenLog(
             new DefaultLog(
                 new ConsoleLogger(
@@ -35,22 +34,16 @@ public final class JcabiLoggersTest {
     }
 
     @Test
-    public void retrievesLoggerByName() {
+    void retrievesLoggerByName() {
         MatcherAssert.assertThat(
+            "should retrieves logger by name",
             new JcabiLoggers().getLogger("root"),
             Matchers.instanceOf(Slf4jAdapter.class)
         );
     }
 
-    public void throwsWhenLoggerNameIsNull() {
-        Assertions.assertThrows(
-            IllegalArgumentException.class,
-            () -> new JcabiLoggers().getLogger(null)
-        );
-    }
-
     @Test
-    public void worksWithoutMavenLog() {
+    void worksWithoutMavenLog() {
         new JcabiLoggers().getLogger("test").info(
             "this message should be visible in system stream"
         );
