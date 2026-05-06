@@ -9,7 +9,6 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.apache.maven.plugin.logging.Log;
 import org.slf4j.ILoggerFactory;
-import org.slf4j.spi.LoggerFactoryBinder;
 
 /**
  * The binding of {@link ILoggerFactory} class with
@@ -37,8 +36,9 @@ import org.slf4j.spi.LoggerFactoryBinder;
  */
 @ToString
 @EqualsAndHashCode(of = "loggers")
-@SuppressWarnings("PMD.ConstructorShouldDoInitialization")
-public final class StaticLoggerBinder implements LoggerFactoryBinder {
+@SuppressWarnings({"PMD.ConstructorShouldDoInitialization", "deprecation"})
+public final class StaticLoggerBinder
+    implements org.slf4j.spi.LoggerFactoryBinder {
 
     /**
      * Declare the version of the SLF4J API this implementation is compiled
@@ -57,7 +57,6 @@ public final class StaticLoggerBinder implements LoggerFactoryBinder {
      * The {@link ILoggerFactory} instance returned by the
      * {@link #getLoggerFactory()} method should always be
      * the same object.
-     *
      * @checkstyle VisibilityModifierCheck (5 lines)
      */
     public final transient JcabiLoggers loggers = new JcabiLoggers();
@@ -103,5 +102,4 @@ public final class StaticLoggerBinder implements LoggerFactoryBinder {
     public String getLoggerFactoryClassStr() {
         return this.loggers.getClass().getName();
     }
-
 }

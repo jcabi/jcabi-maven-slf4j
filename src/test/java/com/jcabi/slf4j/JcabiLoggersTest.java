@@ -15,13 +15,11 @@ import org.slf4j.impl.StaticLoggerBinder;
 
 /**
  * Test case for {@link JcabiLoggers}.
- *
  * @since 0.1
  */
 final class JcabiLoggersTest {
 
     @BeforeAll
-    @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
     static void init() {
         StaticLoggerBinder.getSingleton().setMavenLog(
             new DefaultLog(
@@ -44,9 +42,12 @@ final class JcabiLoggersTest {
 
     @Test
     void worksWithoutMavenLog() {
-        new JcabiLoggers().getLogger("test").info(
-            "this message should be visible in system stream"
+        final org.slf4j.Logger logger = new JcabiLoggers().getLogger("test");
+        logger.info("this message should be visible in system stream");
+        MatcherAssert.assertThat(
+            "logger is created",
+            logger,
+            Matchers.notNullValue()
         );
     }
-
 }

@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link Slf4jAdapter}.
- *
  * @since 0.1
  * @checkstyle ExecutableStatementCountCheck (500 lines)
  */
@@ -66,5 +65,4 @@ final class Slf4jAdapterTest {
         logger.error("error-test {} {}", "error-1", "error-2");
         logger.error("error-test-2 {} {}", "err-1", "err-2");
     }
-
 }
