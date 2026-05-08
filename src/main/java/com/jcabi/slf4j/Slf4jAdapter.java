@@ -9,7 +9,6 @@ import lombok.ToString;
 import org.apache.maven.plugin.logging.Log;
 import org.slf4j.Marker;
 import org.slf4j.event.Level;
-import org.slf4j.helpers.FormattingTuple;
 import org.slf4j.helpers.LegacyAbstractLogger;
 import org.slf4j.helpers.MessageFormatter;
 
@@ -34,12 +33,11 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
     /**
      * Serialization ID.
      */
-    public static final long serialVersionUID = 0x12C0976798AB5439L;
+    private static final long serialVersionUID = 0x12C0976798AB5439L;
 
     /**
      * The log to use.
      */
-    @SuppressWarnings("PMD.ProperLogger")
     private final transient Log mlog;
 
     /**
@@ -236,9 +234,7 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
      * @return The message
      */
     private static String format(final String format, final Object arg) {
-        final FormattingTuple tuple =
-            MessageFormatter.format(format, arg);
-        return tuple.getMessage();
+        return MessageFormatter.format(format, arg).getMessage();
     }
 
     /**
@@ -250,9 +246,7 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
      */
     private static String format(final String format, final Object first,
         final Object second) {
-        final FormattingTuple tuple =
-            MessageFormatter.format(format, first, second);
-        return tuple.getMessage();
+        return MessageFormatter.format(format, first, second).getMessage();
     }
 
     /**
@@ -262,9 +256,7 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
      * @return The message
      */
     private static String format(final String format, final Object... array) {
-        final FormattingTuple tuple =
-            MessageFormatter.format(format, array);
-        return tuple.getMessage();
+        return MessageFormatter.format(format, array).getMessage();
     }
 
     /**
@@ -280,5 +272,4 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
             msg
         );
     }
-
 }

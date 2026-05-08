@@ -56,5 +56,4 @@ public final class MavenSlf4j implements SLF4JServiceProvider {
     public String getRequestedApiVersion() {
         return MavenSlf4j.REQUESTED_API_VERSION;
     }
-
 }

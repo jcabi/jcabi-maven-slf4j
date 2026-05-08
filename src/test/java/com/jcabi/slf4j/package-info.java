@@ -5,7 +5,6 @@
 
 /**
  * Maven Log to SLFJ bridge, tests.
- *
  * @since 0.1
  */
 package com.jcabi.slf4j;

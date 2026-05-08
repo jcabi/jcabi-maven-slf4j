@@ -4,6 +4,8 @@
  */
 package com.jcabi.slf4j;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.apache.maven.plugin.logging.Log;
@@ -25,9 +27,13 @@ import org.slf4j.Logger;
 public final class JcabiLoggers implements ILoggerFactory {
 
     /**
+     * Lock for protecting access to {@link #mlog}.
+     */
+    private final transient Lock lock = new ReentrantLock();
+
+    /**
      * Maven log.
      */
-    @SuppressWarnings("PMD.ProperLogger")
     private transient Log mlog = new SystemStreamLog();
 
     @Override
@@ -43,8 +49,11 @@ public final class JcabiLoggers implements ILoggerFactory {
      * @param log The log to set
      */
     public void setMavenLog(final Log log) {
-        synchronized (JcabiLoggers.class) {
+        this.lock.lock();
+        try {
             this.mlog = log;
+        } finally {
+            this.lock.unlock();
         }
     }
 
@@ -55,5 +64,4 @@ public final class JcabiLoggers implements ILoggerFactory {
     public Log getMavenLog() {
         return this.mlog;
     }
-
 }
