@@ -36,6 +36,13 @@ public final class JcabiLoggers implements ILoggerFactory {
      */
     private transient Log mlog = new SystemStreamLog();
 
+    /**
+     * Public ctor.
+     */
+    public JcabiLoggers() {
+        // nothing to initialize
+    }
+
     @Override
     public Logger getLogger(final String name) {
         if (name == null) {

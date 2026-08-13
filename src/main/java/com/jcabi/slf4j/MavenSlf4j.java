@@ -32,6 +32,13 @@ public final class MavenSlf4j implements SLF4JServiceProvider {
     @SuppressWarnings("PMD.LongVariable")
     public static final String REQUESTED_API_VERSION = "2.0.99";
 
+    /**
+     * Public ctor.
+     */
+    public MavenSlf4j() {
+        // nothing to initialize
+    }
+
     @Override
     public void initialize() {
         // nothing here
