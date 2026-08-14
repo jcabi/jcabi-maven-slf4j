@@ -27,7 +27,6 @@ import org.slf4j.helpers.MessageFormatter;
  */
 @ToString
 @EqualsAndHashCode(callSuper = false)
-@SuppressWarnings("PMD.TooManyMethods")
 final class Slf4jAdapter extends LegacyAbstractLogger {
 
     /**
