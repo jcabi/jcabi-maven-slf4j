@@ -29,18 +29,19 @@ public final class JcabiLoggers implements ILoggerFactory {
     /**
      * Lock for protecting access to {@link #mlog}.
      */
-    private final transient Lock lock = new ReentrantLock();
+    private final transient Lock lock;
 
     /**
      * Maven log.
      */
-    private transient Log mlog = new SystemStreamLog();
+    private transient Log mlog;
 
     /**
      * Public ctor.
      */
     public JcabiLoggers() {
-        // nothing to initialize
+        this.lock = new ReentrantLock();
+        this.mlog = new SystemStreamLog();
     }
 
     @Override
