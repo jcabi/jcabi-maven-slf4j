@@ -226,43 +226,19 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
         throw new UnsupportedOperationException("we should not reach this point ever");
     }
 
-    /**
-     * Format with one object.
-     * @param format Format to use
-     * @param arg One argument
-     * @return The message
-     */
     private static String format(final String format, final Object arg) {
         return MessageFormatter.format(format, arg).getMessage();
     }
 
-    /**
-     * Format with two objects.
-     * @param format Format to use
-     * @param first First argument
-     * @param second Second argument
-     * @return The message
-     */
     private static String format(final String format, final Object first,
         final Object second) {
         return MessageFormatter.format(format, first, second).getMessage();
     }
 
-    /**
-     * Format with array.
-     * @param format Format to use
-     * @param array List of arguments
-     * @return The message
-     */
     private static String format(final String format, final Object... array) {
         return MessageFormatter.format(format, array).getMessage();
     }
 
-    /**
-     * Decorate a message with a label prefix.
-     * @param msg The text to decorate
-     * @return The message decorated
-     */
     private String decorate(final String msg) {
         return String.format(
             "%s %s: %s",
