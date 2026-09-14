@@ -5,6 +5,7 @@
 
 /**
  * Maven Log to SLFJ bridge, tests.
+ *
  * @since 0.1
  */
 package org.slf4j.impl;

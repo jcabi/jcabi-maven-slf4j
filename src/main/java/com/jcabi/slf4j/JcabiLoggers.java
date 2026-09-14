@@ -17,7 +17,7 @@ import org.slf4j.Logger;
  * Implementation of {@link ILoggerFactory} returning the appropriate
  * named {@link Slf4jAdapter} instance.
  *
- * <p>The class is thread-safe.
+ * <p>The class is thread-safe.</p>
  *
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
  * @since 0.1.6
@@ -54,6 +54,7 @@ public final class JcabiLoggers implements ILoggerFactory {
 
     /**
      * Set Maven log.
+     *
      * @param log The log to set
      */
     public void setMavenLog(final Log log) {
@@ -67,6 +68,7 @@ public final class JcabiLoggers implements ILoggerFactory {
 
     /**
      * Get Maven log.
+     *
      * @return The log
      */
     public Log getMavenLog() {

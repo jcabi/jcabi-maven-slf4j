@@ -17,7 +17,7 @@ import org.slf4j.spi.SLF4JServiceProvider;
 /**
  * Service provider.
  *
- * <p>The class is thread-safe.
+ * <p>The class is thread-safe.</p>
  *
  * @since 0.12
  */

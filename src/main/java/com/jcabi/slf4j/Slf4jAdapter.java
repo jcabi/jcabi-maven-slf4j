@@ -18,9 +18,9 @@ import org.slf4j.helpers.MessageFormatter;
  *
  * <p>The class has too many methods, but
  * we can't do anything with this since the parent class requires
- * us to implement them all.
+ * us to implement them all.</p>
  *
- * <p>The class is thread-safe.
+ * <p>The class is thread-safe.</p>
  *
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
  * @since 0.1.6
@@ -46,6 +46,7 @@ final class Slf4jAdapter extends LegacyAbstractLogger {
 
     /**
      * Public ctor.
+     *
      * @param log The log to use
      * @param name The label of the logger
      */

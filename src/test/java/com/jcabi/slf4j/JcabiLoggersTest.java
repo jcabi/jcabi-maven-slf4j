@@ -15,6 +15,7 @@ import org.slf4j.impl.StaticLoggerBinder;
 
 /**
  * Test case for {@link JcabiLoggers}.
+ *
  * @since 0.1
  */
 final class JcabiLoggersTest {

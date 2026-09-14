@@ -15,7 +15,7 @@ import org.slf4j.ILoggerFactory;
  * an actual instance of {@link ILoggerFactory} is
  * performed using information returned by this class.
  *
- * <p>This is what you should do in your Maven plugin (before everything else):
+ * <p>This is what you should do in your Maven plugin (before everything else):</p>
  *
  * <pre> import org.apache.maven.plugin.AbstractMojo;
  * import org.slf4j.impl.StaticLoggerBinder;
@@ -27,9 +27,9 @@ import org.slf4j.ILoggerFactory;
  *   }
  * }</pre>
  *
- * <p>All SLF4J calls will be forwarded to Maven Log.
+ * <p>All SLF4J calls will be forwarded to Maven Log.</p>
  *
- * <p>The class is thread-safe.
+ * <p>The class is thread-safe.</p>
  *
  * @see <a href="http://www.slf4j.org/faq.html#slf4j_compatible">SLF4J FAQ</a>
  * @since 0.1.6
@@ -37,6 +37,7 @@ import org.slf4j.ILoggerFactory;
 @ToString
 @EqualsAndHashCode(of = "loggers")
 @SuppressWarnings({"PMD.ConstructorShouldDoInitialization", "deprecation"})
+// @checkstyle FullyQualifiedTypeCheck (2 lines)
 public final class StaticLoggerBinder
     implements org.slf4j.spi.LoggerFactoryBinder {
 
@@ -57,6 +58,7 @@ public final class StaticLoggerBinder
      * The {@link ILoggerFactory} instance returned by the
      * {@link #getLoggerFactory()} method should always be
      * the same object.
+     *
      * @checkstyle VisibilityModifierCheck (5 lines)
      */
     public final transient JcabiLoggers loggers = new JcabiLoggers();
@@ -70,6 +72,7 @@ public final class StaticLoggerBinder
 
     /**
      * Return the singleton of this class.
+     *
      * @return The StaticLoggerBinder singleton
      */
     @SuppressWarnings("PMD.ProhibitPublicStaticMethods")
@@ -79,6 +82,7 @@ public final class StaticLoggerBinder
 
     /**
      * Set Maven Log.
+     *
      * @param log The log from Maven plugin
      */
     public void setMavenLog(final Log log) {
@@ -87,6 +91,7 @@ public final class StaticLoggerBinder
 
     /**
      * Get Maven Log.
+     *
      * @return The log
      */
     public Log getMavenLog() {
