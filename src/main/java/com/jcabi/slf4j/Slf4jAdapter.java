@@ -27,7 +27,7 @@ import org.slf4j.helpers.MessageFormatter;
  */
 @ToString
 @EqualsAndHashCode(callSuper = false)
-final class Slf4jAdapter extends LegacyAbstractLogger {
+public final class Slf4jAdapter extends LegacyAbstractLogger {
 
     /**
      * Serialization ID.
