@@ -58,7 +58,7 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
 
     @Override
     public String getName() {
-        return this.getClass().getName();
+        return this.label;
     }
 
     @Override
