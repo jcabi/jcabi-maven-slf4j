@@ -9,6 +9,7 @@ import lombok.ToString;
 import org.apache.maven.plugin.logging.Log;
 import org.slf4j.Marker;
 import org.slf4j.event.Level;
+import org.slf4j.helpers.FormattingTuple;
 import org.slf4j.helpers.LegacyAbstractLogger;
 import org.slf4j.helpers.MessageFormatter;
 
@@ -73,18 +74,21 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
 
     @Override
     public void trace(final String format, final Object arg) {
-        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, arg)));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, arg);
+        this.trace(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void trace(final String format, final Object first,
         final Object second) {
-        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, first, second)));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, first, second);
+        this.trace(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void trace(final String format, final Object... array) {
-        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, array)));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, array);
+        this.trace(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
@@ -104,18 +108,21 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
 
     @Override
     public void debug(final String format, final Object arg) {
-        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, arg)));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, arg);
+        this.debug(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void debug(final String format, final Object first,
         final Object second) {
-        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, first, second)));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, first, second);
+        this.debug(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void debug(final String format, final Object... array) {
-        this.mlog.debug(this.decorate(Slf4jAdapter.format(format, array)));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, array);
+        this.debug(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
@@ -135,18 +142,21 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
 
     @Override
     public void info(final String format, final Object arg) {
-        this.mlog.info(Slf4jAdapter.format(format, arg));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, arg);
+        this.info(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void info(final String format, final Object first,
         final Object second) {
-        this.mlog.info(Slf4jAdapter.format(format, first, second));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, first, second);
+        this.info(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void info(final String format, final Object... array) {
-        this.mlog.info(Slf4jAdapter.format(format, array));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, array);
+        this.info(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
@@ -166,18 +176,21 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
 
     @Override
     public void warn(final String format, final Object arg) {
-        this.mlog.warn(Slf4jAdapter.format(format, arg));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, arg);
+        this.warn(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void warn(final String format, final Object... array) {
-        this.mlog.warn(Slf4jAdapter.format(format, array));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, array);
+        this.warn(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void warn(final String format, final Object first,
         final Object second) {
-        this.mlog.warn(Slf4jAdapter.format(format, first, second));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, first, second);
+        this.warn(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
@@ -197,18 +210,21 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
 
     @Override
     public void error(final String format, final Object arg) {
-        this.mlog.error(Slf4jAdapter.format(format, arg));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, arg);
+        this.error(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void error(final String format, final Object first,
         final Object second) {
-        this.mlog.error(Slf4jAdapter.format(format, first, second));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, first, second);
+        this.error(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
     public void error(final String format, final Object... array) {
-        this.mlog.error(Slf4jAdapter.format(format, array));
+        final FormattingTuple tuple = Slf4jAdapter.format(format, array);
+        this.error(tuple.getMessage(), tuple.getThrowable());
     }
 
     @Override
@@ -227,17 +243,17 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
         throw new UnsupportedOperationException("we should not reach this point ever");
     }
 
-    private static String format(final String format, final Object arg) {
-        return MessageFormatter.format(format, arg).getMessage();
+    private static FormattingTuple format(final String format, final Object arg) {
+        return MessageFormatter.format(format, arg);
     }
 
-    private static String format(final String format, final Object first,
+    private static FormattingTuple format(final String format, final Object first,
         final Object second) {
-        return MessageFormatter.format(format, first, second).getMessage();
+        return MessageFormatter.format(format, first, second);
     }
 
-    private static String format(final String format, final Object... array) {
-        return MessageFormatter.format(format, array).getMessage();
+    private static FormattingTuple format(final String format, final Object... array) {
+        return MessageFormatter.arrayFormat(format, array);
     }
 
     private String decorate(final String msg) {
