@@ -35,9 +35,9 @@ final class Slf4jAdapterTest {
         logger.isWarnEnabled();
         logger.isErrorEnabled();
         MatcherAssert.assertThat(
-            "should has name 'com.jcabi.test'",
-            Slf4jAdapter.class.getName(),
-            Matchers.equalTo(logger.getName())
+            "should have the supplied logger name",
+            logger.getName(),
+            Matchers.equalTo("com.jcabi.test")
         );
         logger.trace("trace-test message");
         logger.trace("trace-test-2", new IllegalArgumentException("trace-ex"));
