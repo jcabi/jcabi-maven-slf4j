@@ -42,6 +42,18 @@ final class JcabiLoggersTest {
     }
 
     @Test
+    void preservesLoggerNames() {
+        final JcabiLoggers factory = new JcabiLoggers();
+        for (final String name : new String[]{"com.jcabi.first", "com.jcabi.second", ""}) {
+            MatcherAssert.assertThat(
+                "should preserve the requested logger name",
+                factory.getLogger(name).getName(),
+                Matchers.equalTo(name)
+            );
+        }
+    }
+
+    @Test
     void worksWithoutMavenLog() {
         final org.slf4j.Logger logger = new JcabiLoggers().getLogger("test");
         logger.info("this message should be visible in system stream");
