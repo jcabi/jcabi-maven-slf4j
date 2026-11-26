@@ -238,6 +238,7 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
     }
 
     @Override
+    @SuppressWarnings("PMD.ExhaustiveSwitchHasDefault")
     public void handleNormalizedLoggingCall(final Level level, final Marker marker,
         final String msg, final Object[] arguments, final Throwable throwable) {
         final String text = MessageFormatter.arrayFormat(msg, arguments, throwable)
