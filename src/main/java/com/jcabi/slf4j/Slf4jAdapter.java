@@ -240,7 +240,27 @@ public final class Slf4jAdapter extends LegacyAbstractLogger {
     @Override
     public void handleNormalizedLoggingCall(final Level level, final Marker marker,
         final String msg, final Object[] arguments, final Throwable throwable) {
-        throw new UnsupportedOperationException("we should not reach this point ever");
+        final String text = MessageFormatter.arrayFormat(msg, arguments, throwable)
+            .getMessage();
+        switch (level) {
+            case TRACE:
+                this.trace(text, throwable);
+                break;
+            case DEBUG:
+                this.debug(text, throwable);
+                break;
+            case INFO:
+                this.info(text, throwable);
+                break;
+            case WARN:
+                this.warn(text, throwable);
+                break;
+            case ERROR:
+                this.error(text, throwable);
+                break;
+            default:
+                throw new IllegalArgumentException(level.toString());
+        }
     }
 
     private static FormattingTuple format(final String format, final Object arg) {
